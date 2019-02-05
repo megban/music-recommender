@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"strings"
+	"strconv"
 
 	"github.com/zmb3/spotify"
 )
@@ -60,11 +60,20 @@ func (ch *ClientHandlers) Landing(w http.ResponseWriter, r *http.Request, client
 	}
 
 	// Generate html. TODO Use a template system -- vulnerable code
-	fmt.Fprintf(w, "<html><body>Select a playlist to download. Downloads may take several seconds.<ul>")
+	fmt.Fprintf(w,
+		`<html><body>
+		<form method=get action='/genre'>
+		Genre to scrape:<input type=text name=genre>
+		Max songs: <input type=number name=max>
+		<input type=submit>
+		</form>
+		<p>
+		Select a playlist to download. Downloads may take several seconds.
+		<ul>`)
 	for _, pl := range playlists {
 		fmt.Fprintf(w, "<li><a href='csv?id=%s&name=%s'>%s</a></li>", pl.ID, pl.Name, pl.Name)
 	}
-	fmt.Fprintf(w, "</ul></body></html>")
+	fmt.Fprintf(w, "</ul></p></body></html>")
 }
 
 // Turns a playlist ID into a CSV of audio features
@@ -72,15 +81,11 @@ func (ch *ClientHandlers) DownloadCSV(w http.ResponseWriter, r *http.Request, cl
 	playlistID := r.FormValue("id")
 	playlistName := r.FormValue("name")
 	if playlistID == "" || playlistName == "" {
-		fmt.Fprintf(w, "Missing paramaters (need id, name)")
+		servererror(w, "Missing parameters (need id, name)", nil)
 		return
 	}
 
-	// Assuming status OK for efficiency
-	w.Header().Set("Content-Type", "text/csv")
-	w.Header().Set("Content-Disposition", "attachment; filename=\""+playlistName+".csv\"")
-	w.WriteHeader(http.StatusOK)
-	fmt.Fprintf(w, "id,name,album,acousticness,danceability,energy,instrumentalness,liveness,loudness,speechiness,valence,duration,key,mode,tempo,time_sig\n")
+	csv := NewTrackFeatureCSV(client, playlistName)
 
 	for limit, offset := LIMIT, 0; ; offset += limit {
 		// Get a set of tracks
@@ -90,7 +95,7 @@ func (ch *ClientHandlers) DownloadCSV(w http.ResponseWriter, r *http.Request, cl
 				Offset: &offset,
 			}, "items")
 		if err != nil {
-			fmt.Fprintf(w, "Error occurred, data incomplete")
+			servererror(w, "Could not retrieve tracks in playlist", err)
 			return
 		}
 		if len(tracks.Tracks) == 0 {
@@ -98,47 +103,51 @@ func (ch *ClientHandlers) DownloadCSV(w http.ResponseWriter, r *http.Request, cl
 			break
 		}
 
-		var idList []spotify.ID
-		for _, track := range tracks.Tracks {
-			idList = append(idList, track.Track.ID)
+		// Get FullTracks to add to csv
+		fulltracks := make([]spotify.FullTrack, len(tracks.Tracks))
+		for i := range tracks.Tracks {
+			fulltracks[i] = tracks.Tracks[i].Track
 		}
+		csv.Add(fulltracks)
+	}
 
-		// Get features of those tracks
-		features, err := client.GetAudioFeatures(idList...)
+	csv.WriteHTTP(w)
+	return
+}
+
+// Scrapes a track features csv from a genre seed.
+func (ch *ClientHandlers) GenreScrape(w http.ResponseWriter, r *http.Request, client spotify.Client) {
+	genre := r.FormValue("genre")
+	if genre == "" {
+		servererror(w, "Missing genre paramater", nil)
+		return
+	}
+
+	maximum, err := strconv.Atoi(r.FormValue("max"))
+	if err != nil || maximum < 0 || maximum > 1e4 {
+		maximum = 500
+	}
+
+	csv := NewTrackFeatureCSV(client, genre)
+	for limit, offset := LIMIT, 0; limit+offset < maximum; offset += limit {
+		searchResult, err := client.SearchOpt("genre:"+genre, spotify.SearchTypeTrack, &spotify.Options{
+			Limit:  &limit,
+			Offset: &offset,
+		})
 		if err != nil {
-			fmt.Fprintf(w, "Error occurred, data incomplete")
+			servererror(w, "Error searching by genre", err)
 			return
 		}
 
-		// Write features
-		for i, f := range features {
-			if f == nil {
-				// Skip missing songs
-				continue
-			}
-
-			// Print the CSV item. Strings w/ quotations have to be fixed. See
-			// above line for format.
-			fmt.Fprintf(w, "%s,\"%s\",\"%s\",%f,%f,%f,%f,%f,%f,%f,%f,%d,%d,%d,%f,%d\n",
-				f.ID.String(),
-				strings.Replace(tracks.Tracks[i].Track.Name, "\"", "\"\"", -1),
-				strings.Replace(tracks.Tracks[i].Track.Album.Name, "\"", "\"\"", -1),
-				f.Acousticness,
-				f.Danceability,
-				f.Energy,
-				f.Instrumentalness,
-				f.Liveness,
-				f.Loudness,
-				f.Speechiness,
-				f.Valence,
-				f.Duration,
-				f.Key,
-				f.Mode,
-				f.Tempo,
-				f.TimeSignature,
-			)
+		if len(searchResult.Tracks.Tracks) == 0 {
+			break
 		}
+
+		csv.Add(searchResult.Tracks.Tracks)
 	}
+
+	csv.WriteHTTP(w)
+	return
 }
 
 // NoClient handles loading a page that requires a client when no client is
@@ -176,4 +185,5 @@ func (ch *ClientHandlers) WithClient(next ClientHandler) http.HandlerFunc {
 func (ch *ClientHandlers) HandleFuncs(mux *http.ServeMux) {
 	mux.HandleFunc("/", ch.WithClient(ch.Landing))
 	mux.HandleFunc("/csv", ch.WithClient(ch.DownloadCSV))
+	mux.HandleFunc("/genre", ch.WithClient(ch.GenreScrape))
 }
