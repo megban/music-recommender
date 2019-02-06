@@ -129,7 +129,7 @@ func (ch *ClientHandlers) GenreScrape(w http.ResponseWriter, r *http.Request, cl
 	}
 
 	csv := NewTrackFeatureCSV(client, genre)
-	for limit, offset := LIMIT, 0; limit+offset < maximum; offset += limit {
+	for limit, offset := LIMIT, 0; limit+offset <= maximum; offset += limit {
 		searchResult, err := client.SearchOpt("genre:"+genre, spotify.SearchTypeTrack, &spotify.Options{
 			Limit:  &limit,
 			Offset: &offset,
