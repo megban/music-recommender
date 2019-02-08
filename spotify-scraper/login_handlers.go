@@ -30,7 +30,8 @@ func redirectCallback(w http.ResponseWriter, r *http.Request) {
 	// Save the client with the userid
 	user, err := client.CurrentUser()
 	if err != nil {
-		log.Fatal("Could not get user:", err)
+		http.Error(w, "Failed to get user ID", http.StatusInternalServerError)
+		log.Print("Could not get user id:", err)
 	}
 	clients[user.ID] = client
 

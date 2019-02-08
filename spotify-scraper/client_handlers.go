@@ -14,8 +14,7 @@ const (
 )
 
 func servererror(w http.ResponseWriter, msg string, err error) {
-	w.WriteHeader(http.StatusInternalServerError)
-	fmt.Fprintf(w, "500: Internal error -- %s (%s)", msg, err)
+	http.Error(w, fmt.Sprintf("%s (%s)", msg, err), http.StatusInternalServerError)
 }
 
 // whois returns the name of the user for a client
@@ -112,7 +111,6 @@ func (ch *ClientHandlers) DownloadCSV(w http.ResponseWriter, r *http.Request, cl
 	}
 
 	csv.WriteHTTP(w)
-	return
 }
 
 // Scrapes a track features csv from a genre seed.
@@ -147,7 +145,6 @@ func (ch *ClientHandlers) GenreScrape(w http.ResponseWriter, r *http.Request, cl
 	}
 
 	csv.WriteHTTP(w)
-	return
 }
 
 // NoClient handles loading a page that requires a client when no client is
