@@ -5,6 +5,7 @@ import sys
 from typing import List
 
 from sklearn.cluster import KMeans
+from sklearn.cluster import MiniBatchKMeans
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 import pandas as pd
@@ -17,6 +18,7 @@ def featureCSV(filename: str):
 # Trains a k-cluster model and displays the results
 def cluster_and_show(train_data, clusters: int):
     model = KMeans(n_clusters=clusters)
+    #model = MiniBatchKMeans(n_clusters=clusters, random_state=0, batch_size=6)
     model.fit(train_data)
 
     all_predictions = model.predict(train_data)
