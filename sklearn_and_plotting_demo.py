@@ -35,8 +35,7 @@ ax.scatter(x_axis, y_axis, z_axis, c=iris_df.target)
 model = KMeans(n_clusters=3)
 model.fit(iris_df.data)
 
-# Predicitng a single input
-predicted_label = model.predict([[7.2, 3.5, 0.8, 1.6]])
+
 
 # Prediction on the entire data
 all_predictions = model.predict(iris_df.data)
