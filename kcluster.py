@@ -30,6 +30,9 @@ def cluster_and_show(train_data, clusters: int):
     fig = plt.figure(1)
     ax = fig.add_subplot(111, projection='3d')
     ax.scatter(slices[0], slices[1], slices[2], c=all_predictions)
+    ax.set_xlabel('danceability')
+    ax.set_ylabel('energy')
+    ax.set_zlabel('instrumentalness')
     plt.show()
 
 if __name__ == '__main__':
