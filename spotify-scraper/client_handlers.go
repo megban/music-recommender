@@ -62,7 +62,7 @@ func (ch *ClientHandlers) Landing(w http.ResponseWriter, r *http.Request, client
 	fmt.Fprintf(w,
 		`<html><body>
 		<form method=get action='/genre'>
-		Genre to scrape:<input type=text name=genre>
+		Genre to scrape: <input type=text name=genre>
 		Max songs: <input type=number name=max>
 		<input type=submit>
 		</form>
