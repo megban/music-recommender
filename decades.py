@@ -35,7 +35,7 @@ model = Sequential([
     Dense(7), Activation('softmax'),
     ])
 
-model.compile(optimizer=keras.optimizers.RMSprop(),
+model.compile(optimizer=keras.optimizers.Nadam(),
         loss='categorical_crossentropy',
         metrics=['accuracy'])
 
