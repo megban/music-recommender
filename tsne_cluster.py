@@ -22,6 +22,6 @@ def tsne_model(df):
 
 
 if __name__ == '__main__':
-    df = ch.featureCSV("data/Playlist1.csv", ['name','album','id'])
+    df = ch.featureCSV("data/unsupervised_data.csv", ['name','album','id','genre'])
     scatter_plot = tsne_model(df)
     ch.display_and_store(scatter_plot, "tsne_cluster")

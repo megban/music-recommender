@@ -5,7 +5,7 @@ from sklearn.decomposition import PCA
 import cluster_helper as ch
 
 # Load Dataset
-df = ch.featureCSV("data/Spencer.csv", ['name', 'album', 'id'])
+
 
 def dbscan_model(df):
     # Declaring Model
@@ -42,6 +42,6 @@ def dbscan_model(df):
     return plt
 
 if __name__ == '__main__':
-    df = ch.featureCSV("data/Spencer.csv", ['name', 'album', 'id'])
+    df = ch.featureCSV("data/unsupervised_data.csv", ['name', 'album', 'id','genre'])
     dbscan_plot = dbscan_model(df)
     ch.display_and_store(dbscan_plot,"dbscan_cluster.png")
