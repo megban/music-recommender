@@ -34,6 +34,7 @@ func redirectCallback(w http.ResponseWriter, r *http.Request) {
 		log.Print("Could not get user id:", err)
 	}
 	clients[user.ID] = client
+	//c <- client
 
 	// Put the client in a cookie
 	http.SetCookie(w, &http.Cookie{
@@ -41,5 +42,21 @@ func redirectCallback(w http.ResponseWriter, r *http.Request) {
 		Value: user.ID,
 	})
 
-	http.Redirect(w, r, "/", http.StatusFound)
+	// Find what the user was looking for
+	cookie, err := r.Cookie("callback-address")
+	redirect := cookie.Value
+	if err != nil || redirect == "" {
+		redirect = "/"
+	}
+
+	// Delete the cookie for callback handling
+	http.SetCookie(w, &http.Cookie{
+		Name:   "callback-address",
+		Value:  "INVALID",
+		MaxAge: -1,
+	})
+
+	log.Println(cookie)
+
+	http.Redirect(w, r, redirect, http.StatusFound)
 }

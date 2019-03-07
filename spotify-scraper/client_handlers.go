@@ -2,8 +2,11 @@ package main
 
 import (
 	"fmt"
+	"image/png"
+	"io"
 	"log"
 	"net/http"
+	"os"
 	"strconv"
 
 	"github.com/zmb3/spotify"
@@ -147,9 +150,42 @@ func (ch *ClientHandlers) GenreScrape(w http.ResponseWriter, r *http.Request, cl
 	csv.WriteHTTP(w)
 }
 
+// Spectrogram creates a spectrogram of a 30 second sample for a song.
+func (ch *ClientHandlers) Spectrogram(w http.ResponseWriter, r *http.Request, client spotify.Client) {
+	trackID := r.FormValue("trackid")
+	if trackID == "" {
+		servererror(w, "Missing trackid param", nil)
+		return
+	}
+
+	track, err := client.GetTrack(spotify.ID(trackID))
+	if err != nil {
+		servererror(w, "Could not find track info", err)
+		return
+	}
+
+	preview, err := http.Get(track.PreviewURL)
+	if err != nil {
+		servererror(w, "Could not download preview track", err)
+		return
+	}
+
+	img, err := NewSpectrogram(preview.Body)
+	if err != nil {
+		servererror(w, "Could not read mp3 bytes", err)
+		return
+	}
+
+	png.Encode(w, img)
+}
+
 // NoClient handles loading a page that requires a client when no client is
 // present. Current behaviour is to redirect to login.
 func (ch *ClientHandlers) NoClient(w http.ResponseWriter, r *http.Request) {
+	http.SetCookie(w, &http.Cookie{
+		Name:  "callback-address",
+		Value: r.URL.RequestURI(),
+	})
 	http.Redirect(w, r, "/login", http.StatusFound)
 }
 
@@ -183,4 +219,38 @@ func (ch *ClientHandlers) HandleFuncs(mux *http.ServeMux) {
 	mux.HandleFunc("/", ch.WithClient(ch.Landing))
 	mux.HandleFunc("/csv", ch.WithClient(ch.DownloadCSV))
 	mux.HandleFunc("/genre", ch.WithClient(ch.GenreScrape))
+	mux.HandleFunc("/spectrogram", ch.WithClient(ch.Spectrogram))
+}
+
+func downloadsongs(client spotify.Client, ids []spotify.ID, dir string) {
+	for i := range ids {
+		log.Println("Downloading", ids[i])
+		track, err := client.GetTrack(ids[i])
+		if err != nil {
+			log.Println("Could not get track", err)
+			continue
+		}
+
+		if track.PreviewURL == "" {
+			log.Println("No preview for", ids[i])
+			continue
+		}
+
+		preview, err := http.Get(track.PreviewURL)
+		if err != nil {
+			log.Println("Song download fail:", err)
+			continue
+		}
+		defer preview.Body.Close()
+
+		f, err := os.Create(dir + "/" + ids[i].String() + ".mp3")
+		if err != nil {
+			log.Println("Could not write MP3:", err)
+			continue
+		}
+		defer f.Close()
+
+		io.Copy(f, preview.Body)
+	}
+	log.Println("Done downloading MP3s")
 }
