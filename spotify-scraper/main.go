@@ -115,6 +115,7 @@ func main() {
 			for _, id := range ids {
 				in <- id
 			}
+			close(in)
 		}()
 
 		wg.Wait()
