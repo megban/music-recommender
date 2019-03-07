@@ -16,15 +16,18 @@ import (
 
 const (
 	WINDOW = 1024
-	SLIDE  = 128
+	SLIDE  = 1024
 )
 
 var (
 	WINDOWCONV = window.Hamming(WINDOW)
 	GRAD       = Gradient{
 		color.RGBA{0x00, 0x00, 0x00, 0xff},
-		color.RGBA{0xff, 0x00, 0x00, 0xff},
+		color.RGBA{0x00, 0x00, 0xFF, 0xff},
+		color.RGBA{0x00, 0xFF, 0xFF, 0xff},
+		color.RGBA{0x00, 0xFF, 0x00, 0xff},
 		color.RGBA{0xff, 0xff, 0x00, 0xff},
+		color.RGBA{0xff, 0x00, 0x00, 0xff},
 	}
 )
 
@@ -112,12 +115,26 @@ func (s *Spectrogram) ColorModel() color.Model {
 func (s *Spectrogram) Bounds() image.Rectangle {
 	return image.Rectangle{
 		Min: image.Point{0, 0},
-		Max: image.Point{len(s.mag), WINDOW / 2},
+		Max: image.Point{2 * len(s.mag), WINDOW / 2},
 	}
 }
 
 func (s *Spectrogram) At(x, y int) color.Color {
-	return GRAD.At(s.norm(x, y+WINDOW/2))
+	return s.UpsidedownLog(x/2, (WINDOW/2)-y)
+}
+
+func (s *Spectrogram) UpsidedownLog(x, y int) color.Color {
+	return GRAD.At(s.norm(x, int(logscale(float64(y), WINDOW/2))))
+}
+
+func (s *Spectrogram) Upsidedown(x, y int) color.Color {
+	return GRAD.At(s.norm(x, y))
+}
+
+func logscale(i, tot float64) float64 {
+	logmax := math.Log(tot+1) / math.Log(2)
+	exp := logmax * i / tot
+	return math.Round(math.Pow(2, exp) - 1)
 }
 
 func (s *Spectrogram) norm(x, y int) float64 {
