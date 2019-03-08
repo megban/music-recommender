@@ -3,54 +3,39 @@ import matplotlib.pyplot as plt
 from sklearn.cluster import DBSCAN
 from sklearn.decomposition import PCA
 import cluster_helper as ch
-import numpy as np
-from sklearn import metrics
-from sklearn.datasets.samples_generator import make_blobs
-from sklearn.preprocessing import StandardScaler
-# Load Dataset
 
+COLORS = ['red', 'green', 'blue', 'cyan', 'pink', 'yellow', 'black', 'purple',
+        'magenta', 'lime', 'chartreuse', 'olive', 'turquoise', 'salmon', 'teal',
+        'lightblue', 'khaki', 'grey']
 
 def dbscan_model(df):
     # Declaring Model
-    dbscan = DBSCAN(eps=0.5, min_samples=5)
+    dbscan = DBSCAN(eps=0.3, min_samples=5)
+
     # Fitting
-    X = dbscan.fit(df)
-    y_pred = dbscan.fit_predict(df)
-    plt.scatter(X[:,0], X[:,1])
-    plt.title("DBSCAN")
+    dbscan.fit(df)
 
+    ch.save_classifier("spencer_dbscan", dbscan)
 
-    
     # Transoring Using PCA
     pca = PCA(n_components=2).fit(df)
     pca_2d = pca.transform(df)
-    c1 = None
-    c2 = None
+    c = [None] * len(COLORS)
     # Plot based on Class
+    print("cluster")
     for i in range(0, pca_2d.shape[0]):
-        if dbscan.labels_[i] == 0:
-            c1 = plt.scatter(pca_2d[i, 0], pca_2d[i, 1], c='r', marker='+')
-        elif dbscan.labels_[i] == 1:
-            c2 = plt.scatter(pca_2d[i, 0], pca_2d[i, 1], c='g', marker='o')
-        elif dbscan.labels_[i] == -1:
-            c3 = plt.scatter(pca_2d[i, 0], pca_2d[i, 1], c='b', marker='*')
+        print(dbscan.labels_[i])
+        label = dbscan.labels_[i]
+        if label < len(COLORS):
+            c[label] = plt.scatter(pca_2d[i, 0], pca_2d[i, 1],
+                    c=COLORS[label], marker='+')
 
-    if c1!=None and c2!=None:
-        plt.legend([c1, c2, c3], ['Cluster 1', 'Cluster 2', 'Noise'])
-        plt.title('DBSCAN finds 2 clusters and Noise')
-    elif c1!=None:
-        plt.legend([c1, c3], ['Cluster 1', 'Noise'])
-        plt.title('DBSCAN finds 1 clusters and Noise')
-    elif c2!=None:
-        plt.legend([c2, c3], ['Cluster 1',  'Noise'])
-        plt.title('DBSCAN finds 2 clusters and Noise')
-    else:
-        plt.title("Noise in cluster")
+    plt.legend(c, COLORS)
+    plt.title('DBSCAN Clusters')
     return plt
-    
-
 
 if __name__ == '__main__':
-    df = ch.featureCSV("Playlist1.csv", ['name', 'album', 'id'])
+    df = ch.featureCSV("user_playlist/Spencer.csv", ['name', 'album', 'id',
+        'duration', 'key', 'mode', 'tempo', 'time_sig'])
     dbscan_plot = dbscan_model(df)
     ch.display_and_store(dbscan_plot,"dbscan_cluster.png")
