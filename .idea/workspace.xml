@@ -2,30 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b954a3b-fa07-4dfe-8756-27c10a64c275" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/data/acoustic.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/afro.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/arab.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/christian.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/classical.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/country.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/desi.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/disco.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/electronic.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/folk.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/heavy-metal.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/hip-hop.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/indie.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/jazz.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/latin.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/pop.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/punk.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/r&amp;b.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/rock.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/genres.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DBSCAN_cluster.py" beforeDir="false" afterPath="$PROJECT_DIR$/DBSCAN_cluster.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Spencer.csv" beforeDir="false" afterPath="$PROJECT_DIR$/user_playlist/Spencer.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbscan_cluster.png" beforeDir="false" afterPath="$PROJECT_DIR$/dbscan_cluster.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsne_cluster.png" beforeDir="false" afterPath="$PROJECT_DIR$/tsne_cluster.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cluster_helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/cluster_helper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/unsupervised_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/unsupervised_data.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hierarchical_clustering.py" beforeDir="false" afterPath="$PROJECT_DIR$/hierarchical_clustering.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tsne_cluster.py" beforeDir="false" afterPath="$PROJECT_DIR$/tsne_cluster.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,55 +16,33 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/musicr$tsne_cluster.coverage" NAME="tsne_cluster Coverage Results" MODIFIED="1550455554204" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/musicr$genres.coverage" NAME="genres Coverage Results" MODIFIED="1551997692765" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/musicr$tsne_cluster.coverage" NAME="tsne_cluster Coverage Results" MODIFIED="1551953111608" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/musicr$kcluster.coverage" NAME="kcluster Coverage Results" MODIFIED="1550112559557" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/musicr$hierarchical_clustering.coverage" NAME="hierarchical_clustering Coverage Results" MODIFIED="1550467358701" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/musicr$hierarchical_clustering.coverage" NAME="hierarchical_clustering Coverage Results" MODIFIED="1551950623695" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/musicr$pandas_cleaner.coverage" NAME="pandas_cleaner Coverage Results" MODIFIED="1549591856165" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/musicr$association_rule_learning.coverage" NAME="association-rule-learning Coverage Results" MODIFIED="1550112700659" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/musicr$DBSCAN_cluster.coverage" NAME="DBSCAN_cluster Coverage Results" MODIFIED="1550454373583" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/musicr$decades.coverage" NAME="decades Coverage Results" MODIFIED="1551926220884" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/musicr$data_clean_up.coverage" NAME="data_clean_up Coverage Results" MODIFIED="1550454177265" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hierarchical_clustering.py">
+        <entry file="file://$PROJECT_DIR$/genres.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="39" column="50" selection-start-line="39" selection-start-column="41" selection-end-line="39" selection-end-column="50" />
+            <state relative-caret-position="1140">
+              <caret line="76" column="42" selection-start-line="76" selection-start-column="42" selection-end-line="76" selection-end-column="42" />
               <folding>
-                <element signature="e#20#75#0" expanded="true" />
+                <element signature="e#442#476#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/h_cluster.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/Playlist1.csv">
-          <provider editor-type-id="csv-table-editor">
-            <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-          </provider>
-          <provider selected="true" editor-type-id="csv-text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/desi.csv">
-          <provider editor-type-id="csv-table-editor">
-            <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-          </provider>
-          <provider selected="true" editor-type-id="csv-text-editor">
-            <state relative-caret-position="13305">
-              <caret line="887" selection-start-line="887" selection-end-line="887" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/punk.csv">
+        <entry file="file://$PROJECT_DIR$/Playlist1.csv">
+          <provider editor-type-id="csv-text-editor" />
           <provider selected="true" editor-type-id="csv-table-editor">
             <state showInfoPanel="true" fixedHeaders="false" rowLines="3">
               <column index="0" width="100" />
@@ -104,53 +63,24 @@
               <column index="15" width="100" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/h_test.csv">
           <provider editor-type-id="csv-text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/unsupervised_data.csv">
-          <provider selected="true" editor-type-id="csv-text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/Decades.csv">
           <provider selected="true" editor-type-id="csv-table-editor">
             <state showInfoPanel="true" fixedHeaders="false" rowLines="3">
               <column index="0" width="100" />
               <column index="1" width="100" />
-              <column index="2" width="100" />
-              <column index="3" width="100" />
-              <column index="4" width="100" />
-              <column index="5" width="100" />
-              <column index="6" width="100" />
-              <column index="7" width="100" />
-              <column index="8" width="100" />
-              <column index="9" width="100" />
-              <column index="10" width="100" />
-              <column index="11" width="100" />
-              <column index="12" width="100" />
-              <column index="13" width="100" />
-              <column index="14" width="100" />
-              <column index="15" width="100" />
-              <column index="16" width="100" />
             </state>
           </provider>
-          <provider editor-type-id="csv-text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/user_playlist/Spencer.csv">
-          <provider editor-type-id="csv-table-editor">
-            <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-          </provider>
-          <provider selected="true" editor-type-id="csv-text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/kcluster.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="90">
-              <caret line="14" column="22" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="22" />
+              <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
               <folding>
                 <element signature="e#20#30#0" expanded="true" />
               </folding>
@@ -158,8 +88,43 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/hierarchical_clustering.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="348">
+              <caret line="69" column="52" selection-start-line="69" selection-start-column="52" selection-end-line="69" selection-end-column="52" />
+              <folding>
+                <element signature="e#20#89#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/pop.csv">
+        <entry file="file://$PROJECT_DIR$/data/unsupervised_data.csv">
+          <provider selected="true" editor-type-id="csv-text-editor">
+            <state relative-caret-position="526500">
+              <caret line="35100" column="14" selection-start-line="35100" selection-start-column="14" selection-end-line="35100" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/user_playlist/Spencer.csv">
+          <provider selected="true" editor-type-id="csv-text-editor" />
+          <provider editor-type-id="csv-table-editor">
+            <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/h_cluster.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data/Playlist1.csv">
+          <provider editor-type-id="csv-text-editor" />
           <provider selected="true" editor-type-id="csv-table-editor">
             <state showInfoPanel="true" fixedHeaders="false" rowLines="3">
               <column index="0" width="100" />
@@ -180,7 +145,15 @@
               <column index="15" width="100" />
             </state>
           </provider>
-          <provider editor-type-id="csv-text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/h_cluster_Playlist2.pkl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" column="5" selection-start-line="5" selection-end-line="5" selection-end-column="5" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -198,7 +171,13 @@
       <find>cluster_and_show</find>
       <find>scatter</find>
       <find>all_predictions</find>
+      <find>20</find>
+      <find>heavy-metal</find>
+      <find>hip-hop</find>
     </findStrings>
+    <replaceStrings>
+      <replace>hiphop</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -211,17 +190,20 @@
         <option value="$PROJECT_DIR$/pandas_cleaner.py" />
         <option value="$PROJECT_DIR$/association-rule-learning.py" />
         <option value="$PROJECT_DIR$/association-rule-learning.ipynb" />
-        <option value="$PROJECT_DIR$/cluster_helper.py" />
         <option value="$PROJECT_DIR$/data_clean_up.py" />
         <option value="$PROJECT_DIR$/DBSCAN_cluster.py" />
-        <option value="$PROJECT_DIR$/tsne_cluster.py" />
+        <option value="$PROJECT_DIR$/decades.py" />
+        <option value="$PROJECT_DIR$/cluster_helper.py" />
         <option value="$PROJECT_DIR$/hierarchical_clustering.py" />
+        <option value="$PROJECT_DIR$/tsne_cluster.py" />
+        <option value="$PROJECT_DIR$/data/unsupervised_data.csv" />
+        <option value="$PROJECT_DIR$/genres.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="34" />
-    <option name="y" value="23" />
+    <option name="y" value="25" />
     <option name="width" value="1406" />
     <option name="height" value="757" />
   </component>
@@ -265,6 +247,9 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/data" />
       <recent name="$PROJECT_DIR$/user_playlist" />
@@ -283,7 +268,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.hierarchical_clustering">
+  <component name="RunManager" selected="Python.genres">
     <configuration name="DBSCAN_cluster" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="musicr" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -328,7 +313,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="association-rule-learning" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="decades" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="musicr" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -341,7 +326,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/association-rule-learning.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/decades.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -350,7 +335,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="data_clean_up" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="genres" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="musicr" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -363,7 +348,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data_clean_up.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/genres.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -418,19 +403,19 @@
     </configuration>
     <list>
       <item itemvalue="Python.Unnamed" />
-      <item itemvalue="Python.association-rule-learning" />
       <item itemvalue="Python.hierarchical_clustering" />
       <item itemvalue="Python.tsne_cluster" />
       <item itemvalue="Python.DBSCAN_cluster" />
-      <item itemvalue="Python.data_clean_up" />
+      <item itemvalue="Python.decades" />
+      <item itemvalue="Python.genres" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.hierarchical_clustering" />
+        <item itemvalue="Python.genres" />
         <item itemvalue="Python.tsne_cluster" />
+        <item itemvalue="Python.hierarchical_clustering" />
+        <item itemvalue="Python.decades" />
         <item itemvalue="Python.DBSCAN_cluster" />
-        <item itemvalue="Python.data_clean_up" />
-        <item itemvalue="Python.association-rule-learning" />
       </list>
     </recent_temporary>
   </component>
@@ -451,35 +436,41 @@
       <workItem from="1550452994652" duration="5057000" />
       <workItem from="1550467292883" duration="390000" />
       <workItem from="1550516487147" duration="109000" />
+      <workItem from="1550797541409" duration="1486000" />
+      <workItem from="1551834826364" duration="1091000" />
+      <workItem from="1551840363105" duration="184000" />
+      <workItem from="1551915741962" duration="8200000" />
+      <workItem from="1551987476766" duration="4340000" />
+      <workItem from="1552006388504" duration="420000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13907000" />
+    <option name="totallyTimeSpent" value="29628000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="34" y="23" width="1406" height="757" extended-state="0" />
+    <frame x="34" y="25" width="1406" height="757" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22947215" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24926686" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.081203006" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49853373" weight="0.12180451" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" />
-      <window_info anchor="bottom" id="Python Console" order="12" weight="0.32932332" />
+      <window_info anchor="bottom" id="Database Changes" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5014663" side_tool="true" visible="true" weight="0.12180451" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49926686" weight="0.32932332" />
+      <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.49926686" weight="0.32932332" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.17443609" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info active="true" anchor="right" id="SciView" order="3" visible="true" weight="0.2324047" />
+      <window_info anchor="right" id="SciView" order="3" visible="true" weight="0.3020528" />
       <window_info anchor="right" id="Database" order="4" />
     </layout>
   </component>
@@ -498,31 +489,9 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/spotify-scraper/pandas_cleaner.py" />
-    <entry file="file://$PROJECT_DIR$/pandas_cleaner.py" />
     <entry file="file://$PROJECT_DIR$/association-rule-learning.py" />
-    <entry file="file://$PROJECT_DIR$/sklearn_and_plotting_demo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
-          <folding>
-            <element signature="e#104#132#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/association-rule-learning.ipynb" />
     <entry file="file://$PROJECT_DIR$/foo.png" />
-    <entry file="file://$PROJECT_DIR$/cluster_helper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/spotify-scraper/client_handlers.go">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -554,53 +523,8 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data/k-pop.csv" />
-    <entry file="file://$PROJECT_DIR$/data/acoustic.csv">
-      <provider selected="true" editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3">
-          <column index="0" width="100" />
-          <column index="1" width="100" />
-          <column index="2" width="100" />
-          <column index="3" width="100" />
-          <column index="4" width="100" />
-          <column index="5" width="100" />
-          <column index="6" width="100" />
-          <column index="7" width="100" />
-          <column index="8" width="100" />
-          <column index="9" width="100" />
-          <column index="10" width="100" />
-          <column index="11" width="100" />
-          <column index="12" width="100" />
-          <column index="13" width="100" />
-          <column index="14" width="100" />
-          <column index="15" width="100" />
-        </state>
-      </provider>
-      <provider editor-type-id="csv-text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/afro.csv">
-      <provider selected="true" editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3">
-          <column index="0" width="100" />
-          <column index="1" width="100" />
-          <column index="2" width="100" />
-          <column index="3" width="100" />
-          <column index="4" width="100" />
-          <column index="5" width="100" />
-          <column index="6" width="100" />
-          <column index="7" width="100" />
-          <column index="8" width="100" />
-          <column index="9" width="100" />
-          <column index="10" width="100" />
-          <column index="11" width="100" />
-          <column index="12" width="100" />
-          <column index="13" width="100" />
-          <column index="14" width="100" />
-          <column index="15" width="100" />
-        </state>
-      </provider>
-      <provider editor-type-id="csv-text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/arab.csv">
+      <provider editor-type-id="csv-text-editor" />
       <provider selected="true" editor-type-id="csv-table-editor">
         <state showInfoPanel="true" fixedHeaders="false" rowLines="3">
           <column index="0" width="100" />
@@ -621,143 +545,16 @@
           <column index="15" width="100" />
         </state>
       </provider>
-      <provider editor-type-id="csv-text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/christian.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/country.csv">
-      <provider selected="true" editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3">
-          <column index="0" width="100" />
-          <column index="1" width="100" />
-          <column index="2" width="100" />
-          <column index="3" width="100" />
-          <column index="4" width="100" />
-          <column index="5" width="100" />
-          <column index="6" width="100" />
-          <column index="7" width="100" />
-          <column index="8" width="100" />
-          <column index="9" width="100" />
-          <column index="10" width="100" />
-          <column index="11" width="100" />
-          <column index="12" width="100" />
-          <column index="13" width="100" />
-          <column index="14" width="100" />
-          <column index="15" width="100" />
-        </state>
-      </provider>
-      <provider editor-type-id="csv-text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/disco.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/electronic.csv">
-      <provider selected="true" editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3">
-          <column index="0" width="100" />
-          <column index="1" width="100" />
-          <column index="2" width="100" />
-          <column index="3" width="100" />
-          <column index="4" width="100" />
-          <column index="5" width="100" />
-          <column index="6" width="100" />
-          <column index="7" width="100" />
-          <column index="8" width="100" />
-          <column index="9" width="100" />
-          <column index="10" width="100" />
-          <column index="11" width="100" />
-          <column index="12" width="100" />
-          <column index="13" width="100" />
-          <column index="14" width="100" />
-          <column index="15" width="100" />
-        </state>
-      </provider>
-      <provider editor-type-id="csv-text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/heavy-metal.csv">
-      <provider selected="true" editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3">
-          <column index="0" width="100" />
-          <column index="1" width="100" />
-          <column index="2" width="100" />
-          <column index="3" width="100" />
-          <column index="4" width="100" />
-          <column index="5" width="100" />
-          <column index="6" width="100" />
-          <column index="7" width="100" />
-          <column index="8" width="100" />
-          <column index="9" width="100" />
-          <column index="10" width="100" />
-          <column index="11" width="100" />
-          <column index="12" width="100" />
-          <column index="13" width="100" />
-          <column index="14" width="100" />
-          <column index="15" width="100" />
-        </state>
-      </provider>
-      <provider editor-type-id="csv-text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/hip-hop.csv">
-      <provider selected="true" editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3">
-          <column index="0" width="100" />
-          <column index="1" width="100" />
-          <column index="2" width="100" />
-          <column index="3" width="100" />
-          <column index="4" width="100" />
-          <column index="5" width="100" />
-          <column index="6" width="100" />
-          <column index="7" width="100" />
-          <column index="8" width="100" />
-          <column index="9" width="100" />
-          <column index="10" width="100" />
-          <column index="11" width="100" />
-          <column index="12" width="100" />
-          <column index="13" width="100" />
-          <column index="14" width="100" />
-          <column index="15" width="100" />
-        </state>
-      </provider>
-      <provider editor-type-id="csv-text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/indie.csv">
-      <provider selected="true" editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3">
-          <column index="0" width="100" />
-          <column index="1" width="100" />
-          <column index="2" width="100" />
-          <column index="3" width="100" />
-          <column index="4" width="100" />
-          <column index="5" width="100" />
-          <column index="6" width="100" />
-          <column index="7" width="100" />
-          <column index="8" width="100" />
-          <column index="9" width="100" />
-          <column index="10" width="100" />
-          <column index="11" width="100" />
-          <column index="12" width="100" />
-          <column index="13" width="100" />
-          <column index="14" width="100" />
-          <column index="15" width="100" />
-        </state>
-      </provider>
-      <provider editor-type-id="csv-text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/data/kpop.csv" />
     <entry file="file://$PROJECT_DIR$/data/latin.csv">
+      <provider selected="true" editor-type-id="csv-text-editor" />
       <provider editor-type-id="csv-table-editor">
         <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
       </provider>
-      <provider selected="true" editor-type-id="csv-text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/data/r&amp;b.csv">
+      <provider editor-type-id="csv-text-editor" />
       <provider selected="true" editor-type-id="csv-table-editor">
         <state showInfoPanel="true" fixedHeaders="false" rowLines="3">
           <column index="0" width="100" />
@@ -778,30 +575,6 @@
           <column index="15" width="100" />
         </state>
       </provider>
-      <provider editor-type-id="csv-text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/rock.csv">
-      <provider selected="true" editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3">
-          <column index="0" width="100" />
-          <column index="1" width="100" />
-          <column index="2" width="100" />
-          <column index="3" width="100" />
-          <column index="4" width="100" />
-          <column index="5" width="100" />
-          <column index="6" width="100" />
-          <column index="7" width="100" />
-          <column index="8" width="100" />
-          <column index="9" width="100" />
-          <column index="10" width="100" />
-          <column index="11" width="100" />
-          <column index="12" width="100" />
-          <column index="13" width="100" />
-          <column index="14" width="100" />
-          <column index="15" width="100" />
-        </state>
-      </provider>
-      <provider editor-type-id="csv-text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
@@ -821,12 +594,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DBSCAN_cluster.py">
+    <entry file="file://$PROJECT_DIR$/data/desi.csv">
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="13305">
+          <caret line="887" selection-start-line="887" selection-end-line="887" />
+        </state>
+      </provider>
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sklearn_and_plotting_demo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="44" column="82" selection-start-line="44" selection-start-column="82" selection-end-line="44" selection-end-column="82" />
+        <state relative-caret-position="90">
+          <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
           <folding>
-            <element signature="e#0#38#0" expanded="true" />
+            <element signature="e#104#132#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -834,123 +617,336 @@
     <entry file="file://$PROJECT_DIR$/tsne_cluster.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/decades.py">
+    <entry file="file://$PROJECT_DIR$/data/acoustic.csv">
+      <provider editor-type-id="csv-text-editor" />
+      <provider selected="true" editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3">
+          <column index="0" width="100" />
+          <column index="1" width="100" />
+          <column index="2" width="100" />
+          <column index="3" width="100" />
+          <column index="4" width="100" />
+          <column index="5" width="100" />
+          <column index="6" width="100" />
+          <column index="7" width="100" />
+          <column index="8" width="100" />
+          <column index="9" width="100" />
+          <column index="10" width="100" />
+          <column index="11" width="100" />
+          <column index="12" width="100" />
+          <column index="13" width="100" />
+          <column index="14" width="100" />
+          <column index="15" width="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/afro.csv">
+      <provider editor-type-id="csv-text-editor" />
+      <provider selected="true" editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3">
+          <column index="0" width="100" />
+          <column index="1" width="100" />
+          <column index="2" width="100" />
+          <column index="3" width="100" />
+          <column index="4" width="100" />
+          <column index="5" width="100" />
+          <column index="6" width="100" />
+          <column index="7" width="100" />
+          <column index="8" width="100" />
+          <column index="9" width="100" />
+          <column index="10" width="100" />
+          <column index="11" width="100" />
+          <column index="12" width="100" />
+          <column index="13" width="100" />
+          <column index="14" width="100" />
+          <column index="15" width="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DBSCAN_cluster.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-538" />
+        <state relative-caret-position="180">
+          <caret line="16" column="18" lean-forward="true" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dbscan_cluster.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/data/christian.csv">
+      <provider selected="true" editor-type-id="csv-text-editor" />
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/classical.csv">
+      <provider editor-type-id="csv-text-editor" />
+      <provider selected="true" editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3">
+          <column index="0" width="100" />
+          <column index="1" width="100" />
+          <column index="2" width="100" />
+          <column index="3" width="100" />
+          <column index="4" width="100" />
+          <column index="5" width="100" />
+          <column index="6" width="100" />
+          <column index="7" width="100" />
+          <column index="8" width="100" />
+          <column index="9" width="100" />
+          <column index="10" width="100" />
+          <column index="11" width="100" />
+          <column index="12" width="100" />
+          <column index="13" width="100" />
+          <column index="14" width="100" />
+          <column index="15" width="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/country.csv">
+      <provider editor-type-id="csv-text-editor" />
+      <provider selected="true" editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3">
+          <column index="0" width="100" />
+          <column index="1" width="100" />
+          <column index="2" width="100" />
+          <column index="3" width="100" />
+          <column index="4" width="100" />
+          <column index="5" width="100" />
+          <column index="6" width="100" />
+          <column index="7" width="100" />
+          <column index="8" width="100" />
+          <column index="9" width="100" />
+          <column index="10" width="100" />
+          <column index="11" width="100" />
+          <column index="12" width="100" />
+          <column index="13" width="100" />
+          <column index="14" width="100" />
+          <column index="15" width="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/disco.csv">
+      <provider editor-type-id="csv-text-editor" />
+      <provider selected="true" editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3">
+          <column index="0" width="100" />
+          <column index="1" width="100" />
+          <column index="2" width="100" />
+          <column index="3" width="100" />
+          <column index="4" width="100" />
+          <column index="5" width="100" />
+          <column index="6" width="100" />
+          <column index="7" width="100" />
+          <column index="8" width="100" />
+          <column index="9" width="100" />
+          <column index="10" width="100" />
+          <column index="11" width="100" />
+          <column index="12" width="100" />
+          <column index="13" width="100" />
+          <column index="14" width="100" />
+          <column index="15" width="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/electronic.csv">
+      <provider editor-type-id="csv-text-editor" />
+      <provider selected="true" editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3">
+          <column index="0" width="100" />
+          <column index="1" width="100" />
+          <column index="2" width="100" />
+          <column index="3" width="100" />
+          <column index="4" width="100" />
+          <column index="5" width="100" />
+          <column index="6" width="100" />
+          <column index="7" width="100" />
+          <column index="8" width="100" />
+          <column index="9" width="100" />
+          <column index="10" width="100" />
+          <column index="11" width="100" />
+          <column index="12" width="100" />
+          <column index="13" width="100" />
+          <column index="14" width="100" />
+          <column index="15" width="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/heavy-metal.csv">
+      <provider editor-type-id="csv-text-editor" />
+      <provider selected="true" editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3">
+          <column index="0" width="100" />
+          <column index="1" width="100" />
+          <column index="2" width="100" />
+          <column index="3" width="100" />
+          <column index="4" width="100" />
+          <column index="5" width="100" />
+          <column index="6" width="100" />
+          <column index="7" width="100" />
+          <column index="8" width="100" />
+          <column index="9" width="100" />
+          <column index="10" width="100" />
+          <column index="11" width="100" />
+          <column index="12" width="100" />
+          <column index="13" width="100" />
+          <column index="14" width="100" />
+          <column index="15" width="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/hip-hop.csv">
+      <provider editor-type-id="csv-text-editor" />
+      <provider selected="true" editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3">
+          <column index="0" width="100" />
+          <column index="1" width="100" />
+          <column index="2" width="100" />
+          <column index="3" width="100" />
+          <column index="4" width="100" />
+          <column index="5" width="100" />
+          <column index="6" width="100" />
+          <column index="7" width="100" />
+          <column index="8" width="100" />
+          <column index="9" width="100" />
+          <column index="10" width="100" />
+          <column index="11" width="100" />
+          <column index="12" width="100" />
+          <column index="13" width="100" />
+          <column index="14" width="100" />
+          <column index="15" width="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/indie.csv">
+      <provider editor-type-id="csv-text-editor" />
+      <provider selected="true" editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3">
+          <column index="0" width="100" />
+          <column index="1" width="100" />
+          <column index="2" width="100" />
+          <column index="3" width="100" />
+          <column index="4" width="100" />
+          <column index="5" width="100" />
+          <column index="6" width="100" />
+          <column index="7" width="100" />
+          <column index="8" width="100" />
+          <column index="9" width="100" />
+          <column index="10" width="100" />
+          <column index="11" width="100" />
+          <column index="12" width="100" />
+          <column index="13" width="100" />
+          <column index="14" width="100" />
+          <column index="15" width="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/jazz.csv">
+      <provider editor-type-id="csv-text-editor" />
+      <provider selected="true" editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3">
+          <column index="0" width="100" />
+          <column index="1" width="100" />
+          <column index="2" width="100" />
+          <column index="3" width="100" />
+          <column index="4" width="100" />
+          <column index="5" width="100" />
+          <column index="6" width="100" />
+          <column index="7" width="100" />
+          <column index="8" width="100" />
+          <column index="9" width="100" />
+          <column index="10" width="100" />
+          <column index="11" width="100" />
+          <column index="12" width="100" />
+          <column index="13" width="100" />
+          <column index="14" width="100" />
+          <column index="15" width="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/pop.csv">
+      <provider editor-type-id="csv-text-editor" />
+      <provider selected="true" editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3">
+          <column index="0" width="100" />
+          <column index="1" width="100" />
+          <column index="2" width="100" />
+          <column index="3" width="100" />
+          <column index="4" width="100" />
+          <column index="5" width="100" />
+          <column index="6" width="100" />
+          <column index="7" width="100" />
+          <column index="8" width="100" />
+          <column index="9" width="100" />
+          <column index="10" width="100" />
+          <column index="11" width="100" />
+          <column index="12" width="100" />
+          <column index="13" width="100" />
+          <column index="14" width="100" />
+          <column index="15" width="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/rock.csv">
+      <provider editor-type-id="csv-text-editor" />
+      <provider selected="true" editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3">
+          <column index="0" width="100" />
+          <column index="1" width="100" />
+          <column index="2" width="100" />
+          <column index="3" width="100" />
+          <column index="4" width="100" />
+          <column index="5" width="100" />
+          <column index="6" width="100" />
+          <column index="7" width="100" />
+          <column index="8" width="100" />
+          <column index="9" width="100" />
+          <column index="10" width="100" />
+          <column index="11" width="100" />
+          <column index="12" width="100" />
+          <column index="13" width="100" />
+          <column index="14" width="100" />
+          <column index="15" width="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/decades.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="e#442#476#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tsne_cluster_playlist1.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/tsne_cluster.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="24" column="80" selection-start-line="24" selection-start-column="80" selection-end-line="24" selection-end-column="80" />
+        <state relative-caret-position="285">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
           <folding>
             <element signature="e#21#54#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/classical.csv">
-      <provider selected="true" editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3">
-          <column index="0" width="100" />
-          <column index="1" width="100" />
-          <column index="2" width="100" />
-          <column index="3" width="100" />
-          <column index="4" width="100" />
-          <column index="5" width="100" />
-          <column index="6" width="100" />
-          <column index="7" width="100" />
-          <column index="8" width="100" />
-          <column index="9" width="100" />
-          <column index="10" width="100" />
-          <column index="11" width="100" />
-          <column index="12" width="100" />
-          <column index="13" width="100" />
-          <column index="14" width="100" />
-          <column index="15" width="100" />
-        </state>
-      </provider>
-      <provider editor-type-id="csv-text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/jazz.csv">
-      <provider selected="true" editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3">
-          <column index="0" width="100" />
-          <column index="1" width="100" />
-          <column index="2" width="100" />
-          <column index="3" width="100" />
-          <column index="4" width="100" />
-          <column index="5" width="100" />
-          <column index="6" width="100" />
-          <column index="7" width="100" />
-          <column index="8" width="100" />
-          <column index="9" width="100" />
-          <column index="10" width="100" />
-          <column index="11" width="100" />
-          <column index="12" width="100" />
-          <column index="13" width="100" />
-          <column index="14" width="100" />
-          <column index="15" width="100" />
-        </state>
-      </provider>
-      <provider editor-type-id="csv-text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hierarchical_clustering.py">
+    <entry file="file://$PROJECT_DIR$/cluster_helper.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="39" column="50" selection-start-line="39" selection-start-column="41" selection-end-line="39" selection-end-column="50" />
+        <state relative-caret-position="285">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
           <folding>
-            <element signature="e#20#75#0" expanded="true" />
+            <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/Playlist1.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/desi.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="13305">
-          <caret line="887" selection-start-line="887" selection-end-line="887" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/punk.csv">
-      <provider selected="true" editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3">
-          <column index="0" width="100" />
-          <column index="1" width="100" />
-          <column index="2" width="100" />
-          <column index="3" width="100" />
-          <column index="4" width="100" />
-          <column index="5" width="100" />
-          <column index="6" width="100" />
-          <column index="7" width="100" />
-          <column index="8" width="100" />
-          <column index="9" width="100" />
-          <column index="10" width="100" />
-          <column index="11" width="100" />
-          <column index="12" width="100" />
-          <column index="13" width="100" />
-          <column index="14" width="100" />
-          <column index="15" width="100" />
-        </state>
-      </provider>
-      <provider editor-type-id="csv-text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/unsupervised_data.csv">
-      <provider selected="true" editor-type-id="csv-text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/data/Decades.csv">
+      <provider editor-type-id="csv-text-editor" />
       <provider selected="true" editor-type-id="csv-table-editor">
         <state showInfoPanel="true" fixedHeaders="false" rowLines="3">
           <column index="0" width="100" />
@@ -972,25 +968,9 @@
           <column index="16" width="100" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/punk.csv">
       <provider editor-type-id="csv-text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/user_playlist/Spencer.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-      <provider selected="true" editor-type-id="csv-text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/kcluster.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="14" column="22" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="22" />
-          <folding>
-            <element signature="e#20#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/pop.csv">
       <provider selected="true" editor-type-id="csv-table-editor">
         <state showInfoPanel="true" fixedHeaders="false" rowLines="3">
           <column index="0" width="100" />
@@ -1011,10 +991,114 @@
           <column index="15" width="100" />
         </state>
       </provider>
-      <provider editor-type-id="csv-text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/unsupervised_data.csv">
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="526500">
+          <caret line="35100" column="14" selection-start-line="35100" selection-start-column="14" selection-end-line="35100" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user_playlist/Spencer.csv">
+      <provider selected="true" editor-type-id="csv-text-editor" />
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/h_cluster.png">
       <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/Playlist1.csv">
+      <provider editor-type-id="csv-text-editor" />
+      <provider selected="true" editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3">
+          <column index="0" width="100" />
+          <column index="1" width="100" />
+          <column index="2" width="100" />
+          <column index="3" width="100" />
+          <column index="4" width="100" />
+          <column index="5" width="100" />
+          <column index="6" width="100" />
+          <column index="7" width="100" />
+          <column index="8" width="100" />
+          <column index="9" width="100" />
+          <column index="10" width="100" />
+          <column index="11" width="100" />
+          <column index="12" width="100" />
+          <column index="13" width="100" />
+          <column index="14" width="100" />
+          <column index="15" width="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/h_cluster_Playlist2.pkl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="5" selection-start-line="5" selection-end-line="5" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/genres.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1140">
+          <caret line="76" column="42" selection-start-line="76" selection-start-column="42" selection-end-line="76" selection-end-column="42" />
+          <folding>
+            <element signature="e#442#476#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Playlist1.csv">
+      <provider editor-type-id="csv-text-editor" />
+      <provider selected="true" editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3">
+          <column index="0" width="100" />
+          <column index="1" width="100" />
+          <column index="2" width="100" />
+          <column index="3" width="100" />
+          <column index="4" width="100" />
+          <column index="5" width="100" />
+          <column index="6" width="100" />
+          <column index="7" width="100" />
+          <column index="8" width="100" />
+          <column index="9" width="100" />
+          <column index="10" width="100" />
+          <column index="11" width="100" />
+          <column index="12" width="100" />
+          <column index="13" width="100" />
+          <column index="14" width="100" />
+          <column index="15" width="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/h_test.csv">
+      <provider editor-type-id="csv-text-editor" />
+      <provider selected="true" editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3">
+          <column index="0" width="100" />
+          <column index="1" width="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kcluster.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+          <folding>
+            <element signature="e#20#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hierarchical_clustering.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="69" column="52" selection-start-line="69" selection-start-column="52" selection-end-line="69" selection-end-column="52" />
+          <folding>
+            <element signature="e#20#89#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
 </project>

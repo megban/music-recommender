@@ -17,11 +17,14 @@ def tsne_model(df):
     # Plotting 2d t-Sne
     x_axis = transformed[:, 0]
     y_axis = transformed[:, 1]
+    #z_axis = transformed[:, 2]
+    print(model.embedding_)
+    print(plt)
 
     return plt.scatter(x_axis, y_axis)
 
 
 if __name__ == '__main__':
-    df = ch.featureCSV("data/unsupervised_data.csv", ['name','album','id','genre'])
+    df = ch.featureCSV("data/Playlist1.csv", ['name','album','id'])
     scatter_plot = tsne_model(df)
-    ch.display_and_store(scatter_plot, "tsne_cluster")
+    ch.display_and_store(scatter_plot, "tsne_cluster_playlist1")
