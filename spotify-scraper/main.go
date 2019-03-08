@@ -8,6 +8,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"os/exec"
 	"runtime"
 	"sync"
 	"time"
@@ -63,6 +64,7 @@ func main() {
 
 	if *download != "" {
 		go func() {
+			exec.Command("xdg-open", "http://localhost").Start()
 			// Wait for a client from the server thread to download songs
 			var client spotify.Client
 			ticker := time.NewTicker(1 * time.Second)
@@ -73,6 +75,7 @@ func main() {
 				break
 			}
 			downloadsongs(client, read_ids(*download), *save_to)
+			log.Fatal("Done")
 		}()
 		// Fall through to running server to get client
 	}
@@ -82,7 +85,6 @@ func main() {
 		in := make(chan spotify.ID)
 
 		downloader := func() {
-			wg.Add(1)
 			for id := range in {
 				preview, err := os.Open(*read_from + "/" + id.String() + ".mp3")
 				if err != nil {
@@ -107,6 +109,7 @@ func main() {
 		}
 
 		for i := 0; i < runtime.NumCPU(); i++ {
+			wg.Add(1)
 			go downloader()
 		}
 

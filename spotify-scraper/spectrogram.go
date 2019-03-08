@@ -15,8 +15,8 @@ import (
 )
 
 const (
-	WINDOW = 1024
-	SLIDE  = 1024
+	WINDOW = 2048
+	SLIDE  = WINDOW / 2
 )
 
 var (
@@ -27,6 +27,8 @@ var (
 		color.RGBA{0x00, 0xFF, 0xFF, 0xff},
 		color.RGBA{0x00, 0xFF, 0x00, 0xff},
 		color.RGBA{0xff, 0xff, 0x00, 0xff},
+		color.RGBA{0xff, 0xff, 0x00, 0xff},
+		color.RGBA{0xff, 0x00, 0x00, 0xff},
 		color.RGBA{0xff, 0x00, 0x00, 0xff},
 	}
 )
@@ -75,7 +77,7 @@ func NewSpectrogram(src io.ReadCloser) (*Spectrogram, error) {
 		}
 	}
 
-	width := len(maxchan) / SLIDE
+	width := (len(maxchan) - WINDOW) / SLIDE
 	if width > 8192 {
 		width = 8192
 	}
@@ -115,12 +117,12 @@ func (s *Spectrogram) ColorModel() color.Model {
 func (s *Spectrogram) Bounds() image.Rectangle {
 	return image.Rectangle{
 		Min: image.Point{0, 0},
-		Max: image.Point{2 * len(s.mag), WINDOW / 2},
+		Max: image.Point{len(s.mag), WINDOW / 2},
 	}
 }
 
 func (s *Spectrogram) At(x, y int) color.Color {
-	return s.UpsidedownLog(x/2, (WINDOW/2)-y)
+	return s.Upsidedown(x, (WINDOW/2)-y)
 }
 
 func (s *Spectrogram) UpsidedownLog(x, y int) color.Color {
