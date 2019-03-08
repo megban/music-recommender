@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"os"
 	"strconv"
+	"strings"
 
 	"github.com/zmb3/spotify"
 )
@@ -67,6 +68,11 @@ func (ch *ClientHandlers) Landing(w http.ResponseWriter, r *http.Request, client
 		<form method=get action='/genre'>
 		Genre to scrape: <input type=text name=genre>
 		Max songs: <input type=number name=max>
+		<input type=submit>
+		</form>
+		<form method=post action='/playlist' id='playlist'>
+		Make playlist: <input type=text name=name>
+		Song IDs:<textarea name=ids form='playlist'></textarea>
 		<input type=submit>
 		</form>
 		<p>
@@ -179,6 +185,59 @@ func (ch *ClientHandlers) Spectrogram(w http.ResponseWriter, r *http.Request, cl
 	png.Encode(w, img)
 }
 
+func (ch *ClientHandlers) MakePlaylist(w http.ResponseWriter, r *http.Request, client spotify.Client) {
+	r.ParseForm()
+	name := r.Form.Get("name")
+	idstring := r.Form.Get("ids")
+	if name == "" {
+		servererror(w, "Missing name", nil)
+		return
+	}
+	if idstring == "" {
+		servererror(w, "Missing ids", nil)
+		return
+	}
+
+	// Split by newline and remove the extra empty string
+	id_split := strings.Split(idstring, "\n")
+	if id_split[len(id_split)-1] == "" {
+		id_split = id_split[:len(id_split)-1]
+	}
+
+	// Completely redundant, but we need to change the type.
+	ids := make([]spotify.ID, len(id_split))
+	for i := range id_split {
+		ids[i] = spotify.ID(id_split[i])
+		if len(ids[i]) > 22 {
+			ids[i] = ids[i][:22]
+		}
+	}
+
+	// This must succeed after going through WithClient
+	cookie, _ := r.Cookie("userid")
+	userid := cookie.Value
+
+	playlist, err := client.CreatePlaylistForUser(userid, name, "Created for CS144", false)
+	if err != nil {
+		servererror(w, "Could not create playlist", err)
+		return
+	}
+
+	for i := 0; i < len(ids); i += 100 {
+		max := i + 100
+		if max >= len(ids) {
+			max = len(ids)
+		}
+		_, err = client.AddTracksToPlaylist(playlist.ID, ids[i:max]...)
+		if err != nil {
+			servererror(w, "Could not add tracks to playlist", err)
+			return
+		}
+	}
+
+	fmt.Fprintf(w, "Made playlist %s with %d songs", name, len(ids))
+}
+
 // NoClient handles loading a page that requires a client when no client is
 // present. Current behaviour is to redirect to login.
 func (ch *ClientHandlers) NoClient(w http.ResponseWriter, r *http.Request) {
@@ -220,6 +279,7 @@ func (ch *ClientHandlers) HandleFuncs(mux *http.ServeMux) {
 	mux.HandleFunc("/csv", ch.WithClient(ch.DownloadCSV))
 	mux.HandleFunc("/genre", ch.WithClient(ch.GenreScrape))
 	mux.HandleFunc("/spectrogram", ch.WithClient(ch.Spectrogram))
+	mux.HandleFunc("/playlist", ch.WithClient(ch.MakePlaylist))
 }
 
 func downloadsongs(client spotify.Client, ids []spotify.ID, dir string) {
